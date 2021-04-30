@@ -1,0 +1,40 @@
+library(tidyverse)
+data("stackloss")
+view(stackloss)
+print(colnames(stackloss))
+print(rownames(stackloss))
+print(head(stackloss))
+print(tail(stackloss))
+print(summary(stackloss))
+print(nrow(stackloss))
+print(ncol(stackloss))
+print(dim(stackloss))
+print(unique(stackloss$Air.Flow))
+print(unique(stackloss$Water.Temp))
+print(unique(stackloss$Acid.Conc.))
+print(unique(stackloss$stack.loss))
+print(mean(stackloss$stack.loss))
+print(median(stackloss$stack.loss))
+print(sum(stackloss$stack.loss))
+print(max(stackloss$stack.loss))
+print(min(stackloss$stack.loss))
+print(which.max(stackloss$stack.loss))
+print(which.min(stackloss$stack.loss))
+print(sort(stackloss$stack.loss))
+print(quantile(stackloss$stack.loss,c(0.25)))
+print(quantile(stackloss$stack.loss,c(0.50)))
+print(quantile(stackloss$stack.loss,c(0.75)))
+print(ggplot(data=stackloss)+
+        geom_bar(mapping=aes(x=stack.loss)))
+print(ggplot(data=stackloss)+
+        geom_histogram(mapping=aes(x=Air.Flow),binwidth=.8))
+print(ggplot(data=stackloss)+
+        geom_histogram(mapping=aes(x=Water.Temp),binwidth=0.4))
+print(ggplot(data=stackloss)+
+        geom_histogram(mapping=aes(x=Acid.Conc.),binwidth=0.1)+
+        facet_wrap(~stack.loss))
+print(ggplot(data=stackloss, mapping=aes(x=stack.loss,colour=Acid.Conc.))+
+        geom_freqpoly(binwidth=0.1))
+print(ggplot(data=stackloss)+geom_point (mapping=aes(x=Water.Temp,y=Acid.Conc.)))
+print(ggplot(data=stackloss, mapping=aes(x=Air.Flow,y=Water.Temp))+
+        geom_boxplot(mapping=aes(group=cut_width(Acid.Conc.,0.5))))
